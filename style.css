@@ -1,0 +1,127 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins&family=Rubik:wght@400;500;700&display=swap');:root{
+   --Moderate-blue: hsl(238, 40%, 52%);
+    --Soft-Red: hsl(358, 79%, 66%);
+    --Light-grayish-blue: hsl(239, 57%, 85%);
+    --Pale-red: hsl(357, 100%, 86%);
+    --Dark-blue: hsl(212, 24%, 26%);
+    --Grayish-Blue: hsl(211, 10%, 45%);
+    --Light-gray: hsl(223, 19%, 93%);
+    --Very-light-gray: hsl(228, 33%, 97%);
+    --White: hsl(0, 0%, 100%);
+}
+*{
+    margin:0;
+    padding:0;
+    box-sizing: border-box;
+}
+body{
+    background-color: var(--Light-gray);
+    font-family: 'Rubik', sans-serif;
+}
+.subContainer{
+    /* border:2px solid green; */
+    background-color: var(--White);
+    margin:20px;
+    border-radius: 8px;
+    padding:10px 20px;
+}
+header{
+    display: flex;
+    justify-content:flex-start;
+    align-items: center ;
+    padding:0 0px 20px;
+}
+header img{
+    width:12%;
+}
+header h2{
+    margin:0 15px;
+    font-size: 19px;
+    color:var(--Dark-blue);
+}
+header h3{
+    font-size: 17px;
+    font-weight: 400;
+    color:var(--Grayish-Blue)
+}
+section .content{
+    font-size: 16px;
+    line-height: 1.5rem;
+    color:var(--Grayish-Blue)
+}
+section aside{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin:20px 0 10px;
+}
+section .scoreBoard,
+section .replyBox{
+    display: flex;
+    justify-content: flex-start;
+    align-items: center; 
+}
+section .scoreBoard{
+    background-color: var(--Light-gray);
+    padding:5px 10px;
+    border-radius: 5px;
+}
+section .scoreBoard .score,
+section h4{
+    color:var(--Moderate-blue);
+    font-size: 19px;
+    font-weight: 500;
+    margin:0 12px;
+}
+section h4{
+    font-size: 18px;
+}
+.replyContainer{
+    width:85%;
+    margin: 20px 0px 20px 10%;
+    
+}
+.createdReply{
+    padding:10px 10px;
+    /* border:2px solid green; */
+    background-color: var(--White);
+    text-align: center;
+    border-radius: 10px;
+}
+.replyContainer textarea{
+    width:95%;
+    margin:5px 0;
+    padding:10px 20px;
+    height:100px;
+    border:1px solid black;
+    font-size: 20px;
+    border-radius: 5px;
+    color:var(--Grayish-Blue);
+}
+.createdReply textarea::placeholder{
+    font-weight: 700;
+}
+.createdReply aside{
+    margin:0;
+    padding:0 20px;
+    /* border:2px solid black; */
+}
+.createdReply img{
+    width:17%;
+}
+.createdReply aside button{
+    padding:10px 20px;
+    font-size: 20px;
+    color:var(--White);
+    border-radius: 5px;
+    text-transform: uppercase;
+    letter-spacing: .1rem;
+    background-color: var(--Moderate-blue);
+}
+.red{
+    color:red;
+}
+.section{
+    border:2px solid red;
+    padding:20px;
+}
