@@ -55,6 +55,9 @@ section aside{
     align-items: center;
     margin:20px 0 10px;
 }
+.aside{
+    justify-content:space-between;
+}
 section .scoreBoard,
 section .replyBox{
     display: flex;
@@ -118,13 +121,6 @@ section h4{
     letter-spacing: .1rem;
     background-color: var(--Moderate-blue);
 }
-.red{
-    color:red;
-}
-.section{
-    border:2px solid red;
-    padding:20px;
-}
 .you{
     padding:4px 6px;
     margin:0 10px 0 0;
@@ -132,3 +128,70 @@ section h4{
     background-color: var(--Moderate-blue);
     color:var(--White);
 }
+.deletebox{
+    margin:0;
+    padding:0;
+    /* border:2px solid black; */
+}
+.menu{
+    display: flex;
+    align-items: center;
+}
+.menu .deletebox{
+    margin:0 20px 0 0;
+}
+.menu .deletebox h4{
+    color:var(--Soft-Red)
+}
+.modal{
+    display: none;
+    width:100%;
+    height: 100vh;
+    position: absolute;
+    top:0;
+    background-color:rgba(0, 0, 0, 0.204);
+}
+.modal-content{
+    position: absolute;
+    top:50%;
+    left:50%;
+    transform: translate(-50%, -50%);
+    width:90%;
+    /* border:2px solid green; */
+    background-color: var(--White);
+    padding:20px 25px;
+    border-radius: 7px;
+}
+.modal-content h2{
+    font-size: 25px;
+    color:var(--Dark-blue);
+    margin:0 0 10px;
+}
+.modal-content p{
+    font-size: 20px;
+    font-weight: 400;
+    line-height: 1.5rem;
+    color: var(--Grayish-Blue);
+}
+.modal-content aside{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.modal-content aside button{
+    border: none;
+    outline: none;
+    background-color: var(--Dark-blue);
+    margin:20px 0 10px;
+    padding:20px;
+    color:var(--White);
+    font-size: 17px;
+    font-weight: 600;
+    width:48%;
+    border-radius: 9px;
+}
+.modal-content aside button:not(:first-child){
+    background-color: var(--Soft-Red);
+}
+
+

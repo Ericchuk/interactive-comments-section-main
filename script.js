@@ -1,4 +1,5 @@
 let container = document.querySelector(".container");
+let body = document.querySelector("body")
 let data = "data.json"
 async function getData(){
     let reponse = await fetch(data);
@@ -113,12 +114,26 @@ async function getData(){
             score.textContent = 0;
             let imgMinus = document.createElement("img");
             imgMinus.setAttribute("src", "images/icon-minus.svg")
+            let menu = document.createElement("menu");
+            menu.className = "menu"
             let span = document.createElement("span");
-            span.className = "replyBox"
-            let replyImg = document.createElement("img");
-            replyImg.setAttribute("src", "images/icon-reply.svg")
+            span.className = "replyBox deletebox"
+            let deleteImg = document.createElement("img");
+            deleteImg.setAttribute("src", "images/icon-delete.svg")
             let h4 = document.createElement("h4");
-            h4.textContent = "Reply";
+            h4.textContent = "Delete";
+            let span2 = document.createElement("span");
+            span2.className = "replyBox editbox"
+            let editImg = document.createElement("img");
+            editImg.setAttribute("src", "images/icon-edit.svg")
+            let edith4 = document.createElement("h4");
+            edith4.textContent = "Edit";
+            // let span = document.createElement("span");
+            // span.className = "replyBox"
+            // let replyImg = document.createElement("img");
+            // replyImg.setAttribute("src", "images/icon-reply.svg")
+            // let h4 = document.createElement("h4");
+            // h4.textContent = "Reply";
             sectionreply.appendChild(subContainer)
             subContainer.appendChild(header);
             subContainer.appendChild(p);
@@ -132,7 +147,13 @@ async function getData(){
             div.appendChild(imgPlus);
             div.appendChild(score);
             div.appendChild(imgMinus);
-            span.appendChild(replyImg);
+            aside.appendChild(menu);
+            menu.appendChild(span);
+            menu.appendChild(span2);
+            span.appendChild(deleteImg);
+            span.appendChild(h4);
+            span2.appendChild(editImg);
+            span2.appendChild(edith4);
             span.appendChild(h4);
             console.log(sectionreply)
             this.parentElement.parentElement.parentElement.appendChild(sectionreply)
@@ -145,7 +166,30 @@ async function getData(){
              function downVote(){
                  ` ${score.textContent--}`
              }
-             imgMinus.addEventListener("click", downVote)
+             imgMinus.addEventListener("click", downVote);
+
+            //  DELETE FUNCTION 
+            let modal = document.querySelector(".modal");
+            function del(e){
+                e.preventDefault();
+                if(!modal.style.display){
+                    modal.style.display = "block";
+                    body.style.overflow = "hidden"
+                }else{
+                    modal.style.display = "none";
+                    body.style.overflow = "auto"
+                }
+
+            }
+            span.addEventListener("click", del)
+
+            function edit(e){
+                e.preventDefault();
+                
+
+            }
+            span.addEventListener("click", del)
+
         }else{
             return;
         }
@@ -270,6 +314,7 @@ async function getData(){
                 let replyText = `${textBox.value}`
                 p.textContent =`${atted} ${replyText}`;
                 let aside = document.createElement("aside");
+                aside.className = "aside";
                 let div = document.createElement("scoreBoard");
                 div.className = "scoreBoard"
                 let imgPlus = document.createElement("img");
@@ -279,12 +324,20 @@ async function getData(){
                 score.textContent = 0;
                 let imgMinus = document.createElement("img");
                 imgMinus.setAttribute("src", "images/icon-minus.svg")
+                let menu = document.createElement("menu");
+                menu.className = "menu"
                 let span = document.createElement("span");
-                span.className = "replyBox"
-                let replyImg = document.createElement("img");
-                replyImg.setAttribute("src", "images/icon-reply.svg")
+                span.className = "replyBox deletebox"
+                let deleteImg = document.createElement("img");
+                deleteImg.setAttribute("src", "images/icon-delete.svg")
                 let h4 = document.createElement("h4");
-                h4.textContent = "Reply";
+                h4.textContent = "Delete";
+                let span2 = document.createElement("span");
+                span2.className = "replyBox editbox"
+                let editImg = document.createElement("img");
+                editImg.setAttribute("src", "images/icon-edit.svg")
+                let edith4 = document.createElement("h4");
+                edith4.textContent = "Edit";
                 sectionreply.appendChild(subContainer)
                 subContainer.appendChild(header);
                 subContainer.appendChild(p);
@@ -294,12 +347,16 @@ async function getData(){
                 header.appendChild(indicate);
                 header.appendChild(h3);
                 aside.appendChild(div)
-                aside.appendChild(span);
+                aside.appendChild(menu);
                 div.appendChild(imgPlus);
                 div.appendChild(score);
                 div.appendChild(imgMinus);
-                span.appendChild(replyImg);
+                menu.appendChild(span);
+                menu.appendChild(span2);
+                span.appendChild(deleteImg);
                 span.appendChild(h4);
+                span2.appendChild(editImg);
+                span2.appendChild(edith4);
                 console.log(sectionreply)
                 this.parentElement.parentElement.parentElement.appendChild(sectionreply)
                 function upVote(){
@@ -331,9 +388,3 @@ async function getData(){
 }
 
 getData();
-
-let date = new Date();
-date.getHours();
-date.getMinutes();
-date.getSeconds();
-console.log(date)
