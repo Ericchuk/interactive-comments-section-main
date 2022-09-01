@@ -64,33 +64,94 @@ async function getData(){
 
         // REPLY BOX 
         function createReply(){
-            let check = false;
+        let check = false;
             // if(!check){
-                check = true;
-                let section = document.createElement("section");
-                section.className = "replyContainer createdReply"
-                let textBox = document.createElement("textArea");
-                textBox.setAttribute("placeholder", "Send a reply")
-                let aside = document.createElement("aside");
-                let img = document.createElement("img");
-                img.setAttribute("src", "images/avatars/  image-juliusomo.png")
-                let button = document.createElement("button");
-                button.textContent = "Send";
-                section.appendChild(textBox);
-                aside.appendChild(img);
-                aside.appendChild(button);
-                section.appendChild(aside);
-                this.parentElement.parentElement.parentElement.prepend(section);
-                console.log(this.parentElement.parentElement.parentElement.appendChild(section))
-            // }else{
-            //     console.log(check);
-            // }
-        function sendBtn(){
+            check = true;
             let section = document.createElement("section");
-            textBox.textContent = section.textContent;
-            console.log(section);
+            section.className = "replyContainer createdReply"
+            let textBox = document.createElement("textArea");
+            textBox.setAttribute("placeholder", "Send a reply")
+            let aside = document.createElement("aside");
+            let img = document.createElement("img");
+            img.setAttribute("src", "images/avatars/image-juliusomo.png")
+            let button = document.createElement("button");
+            button.textContent = "Send";
+            section.appendChild(textBox);
+            aside.appendChild(img);
+            aside.appendChild(button);
+            section.appendChild(aside);
+            this.parentElement.parentElement.parentElement.appendChild(section);
+        function sendBtn(){
+            section.style.display = "none"
+            console.log(textBox.value);
+            if(!textBox.value == ""){
+            let sectionreply = document.createElement("section");
+            let subContainer = document.createElement("div");
+            subContainer.className = "subContainer replyContainer";
+            let header = document.createElement("header");
+            let img = document.createElement("img");
+            img.setAttribute("src", "images/avatars/image-juliusomo.png")
+            let h2 = document.createElement("h2");
+            h2.textContent = "juliusomo";
+            let indicate = document.createElement("h3");
+            indicate.className="you";
+            indicate.textContent = "you"
+            let h3 = document.createElement("h3");
+            h3.textContent = "now"
+            let p = document.createElement("p");
+            p.className = "content"
+            let atted = `@${responseData.comments[i].user.username}`;
+            let replyText = `${textBox.value}`
+            p.textContent =`${atted} ${replyText}`;
+            let aside = document.createElement("aside");
+            let div = document.createElement("scoreBoard");
+            div.className = "scoreBoard"
+            let imgPlus = document.createElement("img");
+            imgPlus.setAttribute("src", "images/icon-plus.svg")
+            let score = document.createElement("p");
+            score.className = "score"
+            score.textContent = 0;
+            let imgMinus = document.createElement("img");
+            imgMinus.setAttribute("src", "images/icon-minus.svg")
+            let span = document.createElement("span");
+            span.className = "replyBox"
+            let replyImg = document.createElement("img");
+            replyImg.setAttribute("src", "images/icon-reply.svg")
+            let h4 = document.createElement("h4");
+            h4.textContent = "Reply";
+            sectionreply.appendChild(subContainer)
+            subContainer.appendChild(header);
+            subContainer.appendChild(p);
+            subContainer.appendChild(aside);
+            header.appendChild(img);
+            header.appendChild(h2);
+            header.appendChild(indicate);
+            header.appendChild(h3);
+            aside.appendChild(div)
+            aside.appendChild(span);
+            div.appendChild(imgPlus);
+            div.appendChild(score);
+            div.appendChild(imgMinus);
+            span.appendChild(replyImg);
+            span.appendChild(h4);
+            console.log(sectionreply)
+            this.parentElement.parentElement.parentElement.appendChild(sectionreply)
+            function upVote(){
+                ` ${score.textContent++}`
+             }
+             imgPlus.addEventListener("click", upVote)
+     
+              // DECREASE SCORE USING THE PLUS IMG UPVOTE 
+             function downVote(){
+                 ` ${score.textContent--}`
+             }
+             imgMinus.addEventListener("click", downVote)
+        }else{
+            return;
         }
-
+        }
+        // let button = section.querySelector("button")
+        console.log(button)
         button.addEventListener("click", sendBtn);
         }
 
@@ -167,6 +228,100 @@ async function getData(){
          }
          imgMinus.addEventListener("click", downVote)
          // END
+         function createReply(){
+            let check = false;
+                // if(!check){
+                check = true;
+                let section = document.createElement("section");
+                section.className = "replyContainer createdReply"
+                let textBox = document.createElement("textArea");
+                textBox.setAttribute("placeholder", `@${reply.user.username}`)
+                textBox.setAttribute("value", `@${reply.user.username}`)  
+                let aside = document.createElement("aside");
+                let img = document.createElement("img");
+                img.setAttribute("src", "images/avatars/image-juliusomo.png")
+                let button = document.createElement("button");
+                button.textContent = "Send";
+                section.appendChild(textBox);
+                aside.appendChild(img);
+                aside.appendChild(button);
+                section.appendChild(aside);
+                this.parentElement.parentElement.parentElement.appendChild(section);
+            function sendBtn(){
+                section.style.display = "none"
+                console.log(textBox.value);
+                if(!textBox.value == ""){
+                let sectionreply = document.createElement("section");
+                let subContainer = document.createElement("div");
+                subContainer.className = "subContainer replyContainer";
+                let header = document.createElement("header");
+                let img = document.createElement("img");
+                img.setAttribute("src", "images/avatars/image-juliusomo.png")
+                let h2 = document.createElement("h2");
+                h2.textContent = "juliusomo";
+                let indicate = document.createElement("h3");
+                indicate.className="you";
+                indicate.textContent = "you"
+                let h3 = document.createElement("h3");
+                h3.textContent = "now"
+                let p = document.createElement("p");
+                p.className = "content"
+                let atted = `@${responseData.comments[i].user.username}`;
+                let replyText = `${textBox.value}`
+                p.textContent =`${atted} ${replyText}`;
+                let aside = document.createElement("aside");
+                let div = document.createElement("scoreBoard");
+                div.className = "scoreBoard"
+                let imgPlus = document.createElement("img");
+                imgPlus.setAttribute("src", "images/icon-plus.svg")
+                let score = document.createElement("p");
+                score.className = "score"
+                score.textContent = 0;
+                let imgMinus = document.createElement("img");
+                imgMinus.setAttribute("src", "images/icon-minus.svg")
+                let span = document.createElement("span");
+                span.className = "replyBox"
+                let replyImg = document.createElement("img");
+                replyImg.setAttribute("src", "images/icon-reply.svg")
+                let h4 = document.createElement("h4");
+                h4.textContent = "Reply";
+                sectionreply.appendChild(subContainer)
+                subContainer.appendChild(header);
+                subContainer.appendChild(p);
+                subContainer.appendChild(aside);
+                header.appendChild(img);
+                header.appendChild(h2);
+                header.appendChild(indicate);
+                header.appendChild(h3);
+                aside.appendChild(div)
+                aside.appendChild(span);
+                div.appendChild(imgPlus);
+                div.appendChild(score);
+                div.appendChild(imgMinus);
+                span.appendChild(replyImg);
+                span.appendChild(h4);
+                console.log(sectionreply)
+                this.parentElement.parentElement.parentElement.appendChild(sectionreply)
+                function upVote(){
+                    ` ${score.textContent++}`
+                 }
+                 imgPlus.addEventListener("click", upVote)
+         
+                  // DECREASE SCORE USING THE PLUS IMG UPVOTE 
+                 function downVote(){
+                     ` ${score.textContent--}`
+                 }
+                 imgMinus.addEventListener("click", downVote)
+            }else{
+                return;
+            }
+            }
+            // let button = section.querySelector("button")
+            console.log(button)
+            button.addEventListener("click", sendBtn);
+            }
+
+            span.addEventListener("click", createReply)
 
         }
         
@@ -177,3 +332,8 @@ async function getData(){
 
 getData();
 
+let date = new Date();
+date.getHours();
+date.getMinutes();
+date.getSeconds();
+console.log(date)
