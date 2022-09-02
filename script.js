@@ -64,9 +64,11 @@ async function getData(){
         // END 
 
         // REPLY BOX 
-        function createReply(){
+        function createReply(e){
         let check = false;
-            // if(!check){
+            if(e.target.parentElement != "span"){
+                e.target.parentElement.style.display = "none";
+            }
             check = true;
             let section = document.createElement("section");
             section.className = "replyContainer createdReply"
@@ -84,7 +86,8 @@ async function getData(){
             this.parentElement.parentElement.parentElement.appendChild(section);
         function sendBtn(){
             section.style.display = "none"
-            console.log(textBox.value);
+            e.target.parentElement.style.display = "flex";
+            // console.log(textBox.value);
             if(!textBox.value == ""){
             let sectionreply = document.createElement("section");
             let subContainer = document.createElement("div");
@@ -128,12 +131,6 @@ async function getData(){
             editImg.setAttribute("src", "images/icon-edit.svg")
             let edith4 = document.createElement("h4");
             edith4.textContent = "Edit";
-            // let span = document.createElement("span");
-            // span.className = "replyBox"
-            // let replyImg = document.createElement("img");
-            // replyImg.setAttribute("src", "images/icon-reply.svg")
-            // let h4 = document.createElement("h4");
-            // h4.textContent = "Reply";
             sectionreply.appendChild(subContainer)
             subContainer.appendChild(header);
             subContainer.appendChild(p);
@@ -157,54 +154,72 @@ async function getData(){
             span.appendChild(h4);
             console.log(sectionreply)
             this.parentElement.parentElement.parentElement.appendChild(sectionreply)
-            function upVote(){
-                ` ${score.textContent++}`
-             }
              imgPlus.addEventListener("click", upVote)
      
               // DECREASE SCORE USING THE PLUS IMG UPVOTE 
-             function downVote(){
-                 ` ${score.textContent--}`
-             }
+
              imgMinus.addEventListener("click", downVote);
 
-            //  DELETE FUNCTION 
-            let modal = document.querySelector(".modal");
-            function del(e){
-                e.preventDefault();
-                if(!modal.style.display){
-                    modal.style.display = "block";
-                    body.style.overflow = "hidden"
-                }else{
-                    modal.style.display = "none";
-                    body.style.overflow = "auto"
-                }
-
-            }
+            
             span.addEventListener("click", del)
 
-            function edit(e){
-                e.preventDefault();
-                
-
-            }
-            span.addEventListener("click", del)
+           
+            span2.addEventListener("click", edit)
 
         }else{
             return;
         }
         }
-        // let button = section.querySelector("button")
-        console.log(button)
         button.addEventListener("click", sendBtn);
         }
+    
+    // UPVOTE FUNCTION 
+        function upVote(){
+            ` ${score.textContent++}`
+        }
+    // DOWN VOTE FUNCTION 
+        function downVote(){
+             ` ${score.textContent--}`
+        }
+    //  DELETE FUNCTION 
+        let modal = document.querySelector(".modal");
+        function del(e){
+            e.preventDefault();
+            if(!modal.style.display){
+                modal.style.display = "block";
+                body.style.overflow = "hidden"
+            }else{
+                modal.style.display = "none";
+                body.style.overflow = "auto"
+            }
 
-        
+        }
+// EDIT FUNCTION 
+         function edit(e){
+            e.preventDefault();
+            let div = document.createElement("div");
+            div.className = "editBox";
+            let editBox = document.createElement("textarea");
+            editBox.textContent = this.parentElement.parentElement.parentElement.children[1].textContent;
+            let button = document.createElement("button");
+            button.textContent = "Update";
+            button.className = "update"
+            div.appendChild(editBox);
+            div.appendChild(button);
+            this.parentElement.parentElement.parentElement.appendChild(div)
+            console.log(editBox)
+            button.addEventListener("click", updateEdit);
+        }
+    // UPDATE FUNCTION CALLS THE EDIT 
+        function updateEdit(){
+        this.parentElement.parentElement.children[1].textContent = this.parentElement.children[0].value;
+        this.parentElement.remove();
+        // console.log(this.parentElement.parentElement.children[1].textContent , this.parentElement.children[0].value)
+    }
 
         span.addEventListener("click", createReply)
 
         container.appendChild(section)
-
         let replies = responseData.comments[i].replies;
             console.log(replies)
         let access = responseData.comments[i].replies.map((reply) => {
@@ -268,13 +283,15 @@ async function getData(){
  
           // DECREASE SCORE USING THE PLUS IMG UPVOTE 
          function downVote(){
-             ` ${score.textContent--}`
+             `${score.textContent--}`
          }
          imgMinus.addEventListener("click", downVote)
          // END
-         function createReply(){
+         function createReply(e){
             let check = false;
-                // if(!check){
+             if(e.target.parentElement != "span"){
+                e.target.parentElement.style.display = "none";
+             }
                 check = true;
                 let section = document.createElement("section");
                 section.className = "replyContainer createdReply"
@@ -293,7 +310,8 @@ async function getData(){
                 this.parentElement.parentElement.parentElement.appendChild(section);
             function sendBtn(){
                 section.style.display = "none"
-                console.log(textBox.value);
+                // console.log(textBox.value);
+                e.target.parentElement.style.display = "flex";
                 if(!textBox.value == ""){
                 let sectionreply = document.createElement("section");
                 let subContainer = document.createElement("div");
@@ -369,6 +387,9 @@ async function getData(){
                      ` ${score.textContent--}`
                  }
                  imgMinus.addEventListener("click", downVote)
+
+                span.addEventListener("click", del)
+                span2.addEventListener("click", edit)
             }else{
                 return;
             }
