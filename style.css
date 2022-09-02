@@ -63,6 +63,7 @@ section .replyBox{
     display: flex;
     justify-content: flex-start;
     align-items: center; 
+    cursor: pointer;
 }
 section .scoreBoard{
     background-color: var(--Light-gray);
@@ -119,6 +120,7 @@ section h4{
     border-radius: 5px;
     text-transform: uppercase;
     letter-spacing: .1rem;
+    cursor: pointer;
     background-color: var(--Moderate-blue);
 }
 .you{
@@ -139,6 +141,7 @@ section h4{
 }
 .menu .deletebox{
     margin:0 20px 0 0;
+    cursor:pointer;
 }
 .menu .deletebox h4{
     color:var(--Soft-Red)
@@ -148,6 +151,7 @@ section h4{
     justify-content: flex-end;
     align-items: flex-end;
     flex-direction: column;
+    cursor:pointer;
 }
 .update{
     padding:15px 0;
