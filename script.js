@@ -1,6 +1,7 @@
 let container = document.querySelector(".container");
 let body = document.querySelector("body")
 let data = "data.json"
+let modal = document.querySelector(".modal");
 async function getData(){
     let reponse = await fetch(data);
     let responseData = await reponse.json();
@@ -181,41 +182,7 @@ async function getData(){
         function downVote(){
              ` ${score.textContent--}`
         }
-    //  DELETE FUNCTION 
-        let modal = document.querySelector(".modal");
-        function del(e){
-            e.preventDefault();
-            if(!modal.style.display){
-                modal.style.display = "block";
-                body.style.overflow = "hidden"
-            }else{
-                modal.style.display = "none";
-                body.style.overflow = "auto"
-            }
 
-        }
-// EDIT FUNCTION 
-         function edit(e){
-            e.preventDefault();
-            let div = document.createElement("div");
-            div.className = "editBox";
-            let editBox = document.createElement("textarea");
-            editBox.textContent = this.parentElement.parentElement.parentElement.children[1].textContent;
-            let button = document.createElement("button");
-            button.textContent = "Update";
-            button.className = "update"
-            div.appendChild(editBox);
-            div.appendChild(button);
-            this.parentElement.parentElement.parentElement.appendChild(div)
-            console.log(editBox)
-            button.addEventListener("click", updateEdit);
-        }
-    // UPDATE FUNCTION CALLS THE EDIT 
-        function updateEdit(){
-        this.parentElement.parentElement.children[1].textContent = this.parentElement.children[0].value;
-        this.parentElement.remove();
-        // console.log(this.parentElement.parentElement.children[1].textContent , this.parentElement.children[0].value)
-    }
 
         span.addEventListener("click", createReply)
 
@@ -434,8 +401,6 @@ async function getData(){
         score.textContent = 0;
         let imgMinus = document.createElement("img");
         imgMinus.setAttribute("src", "images/icon-minus.svg")
-        // let replyImg = document.createElement("img");
-        // replyImg.setAttribute("src", "images/icon-reply.svg")
         let menu = document.createElement("menu");
         menu.className = "menu"
         let span = document.createElement("span");
@@ -491,6 +456,44 @@ async function getData(){
 
 let send = document.querySelector(".commentBox button")    
 send.addEventListener("click", commentBox);
+
+    //  DELETE FUNCTION 
+    function del(e){
+        e.preventDefault();
+        if(modal.style.display == "block"){
+            modal.style.display = "none";
+            body.style.overflow = "auto"
+        }else{
+            modal.style.display = "block";
+            body.style.overflow = "hidden"
+        }
+
+    }
+// EDIT FUNCTION 
+     function edit(e){
+        e.preventDefault();
+        let div = document.createElement("div");
+        div.className = "editBox";
+        let editBox = document.createElement("textarea");
+        editBox.textContent = this.parentElement.parentElement.parentElement.children[1].textContent;
+        let button = document.createElement("button");
+        button.textContent = "Update";
+        button.className = "update"
+        div.appendChild(editBox);
+        div.appendChild(button);
+        this.parentElement.parentElement.parentElement.appendChild(div)
+        console.log(editBox)
+        button.addEventListener("click", updateEdit);
+    }
+// UPDATE FUNCTION CALLS THE EDIT 
+    function updateEdit(){
+    this.parentElement.parentElement.children[1].textContent = this.parentElement.children[0].value;
+    this.parentElement.remove();
+}
+
+let closeModal = document.querySelector(".cancel");
+
+closeModal.addEventListener("click", del)
 }
 
 getData();
