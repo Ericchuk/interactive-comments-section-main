@@ -83,7 +83,6 @@ section h4{
 .replyContainer{
     width:85%;
     margin: 20px 0px 20px 10%;
-    
 }
 .createdReply{
     padding:10px 10px;
@@ -217,6 +216,7 @@ section h4{
     background-color: var(--White);
     display: flex;
     /* gap: 20px; */
+    height: 270px;
     padding:20px 20px 80px;
     align-items: flex-start;
     justify-content: space-between;
@@ -231,7 +231,7 @@ section h4{
 }
 .commentBox img{
     position: absolute;
-    bottom: 15px;
+    bottom: 40px;
     width:15%;
 }
 .commentBox button{
@@ -244,9 +244,22 @@ section h4{
     outline: none;
     border:none;
     position: absolute;
-    bottom:15px;
+    bottom:40px;
     right:16px;
 }
 @media screen and (min-width:700px) {
-    
+    .subContainer{
+        margin:20px 10%;
+    }
+    .replyContainer{
+        margin:20px 20px 20px 15%;
+        width:75%;
+        align-self: end;
+    }
+    .commentBox img{
+        width: auto;
+    }
+    .modal-content{
+        width:50%;
+    }
 }

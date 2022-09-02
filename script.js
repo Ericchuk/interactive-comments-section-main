@@ -407,7 +407,10 @@ async function getData(){
 
     }
     function commentBox(){
-        
+        let box = document.querySelector(".commentBox textarea")
+        if(box.value == ""){
+            return;
+        }
         let section = document.createElement("section");
         let subContainer = document.createElement("div");
         subContainer.className = "subContainer";
@@ -479,7 +482,7 @@ async function getData(){
              ` ${score.textContent--}`
          }
         imgMinus.addEventListener("click", downVote)
-        let box = document.querySelector(".commentBox textarea")
+        
         box.value = "";
         span.addEventListener("click", del)
         span2.addEventListener("click", edit)
