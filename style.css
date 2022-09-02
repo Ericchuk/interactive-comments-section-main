@@ -213,5 +213,40 @@ section h4{
 .modal-content aside button:not(:first-child){
     background-color: var(--Soft-Red);
 }
-
-
+.commentBox{
+    background-color: var(--White);
+    display: flex;
+    /* gap: 20px; */
+    padding:20px 20px 80px;
+    align-items: flex-start;
+    justify-content: space-between;
+    position: relative;
+}
+.commentBox textarea{
+    width:100%;
+    height:120px;
+    margin:10px 0px;
+    border:1px solid black;
+    border-radius: 5px;
+}
+.commentBox img{
+    position: absolute;
+    bottom: 15px;
+    width:15%;
+}
+.commentBox button{
+    font-size: 16px;
+    padding:15px;
+    /* width:30%; */
+    background-color: var(--Moderate-blue);
+    border-radius: 5px;
+    color:var(--White);
+    outline: none;
+    border:none;
+    position: absolute;
+    bottom:15px;
+    right:16px;
+}
+@media screen and (min-width:700px) {
+    
+}

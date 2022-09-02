@@ -219,7 +219,7 @@ async function getData(){
 
         span.addEventListener("click", createReply)
 
-        container.appendChild(section)
+        container.prepend(section)
         let replies = responseData.comments[i].replies;
             console.log(replies)
         let access = responseData.comments[i].replies.map((reply) => {
@@ -375,7 +375,7 @@ async function getData(){
                 span.appendChild(h4);
                 span2.appendChild(editImg);
                 span2.appendChild(edith4);
-                console.log(sectionreply)
+                // console.log(sectionreply)
                 this.parentElement.parentElement.parentElement.appendChild(sectionreply)
                 function upVote(){
                     ` ${score.textContent++}`
@@ -406,6 +406,90 @@ async function getData(){
         })
 
     }
+    function commentBox(){
+        
+        let section = document.createElement("section");
+        let subContainer = document.createElement("div");
+        subContainer.className = "subContainer";
+        let header = document.createElement("header");
+        let img = document.createElement("img");
+        img.setAttribute("src", "images/avatars/image-juliusomo.png")
+        let h2 = document.createElement("h2");
+        h2.textContent = "juliusomo";
+        let h3 = document.createElement("h3");
+        h3.textContent =   "Just Now";
+        let p = document.createElement("p");
+        p.className = "content"
+        p.textContent = "www";
+        let aside = document.createElement("aside");
+        let div = document.createElement("scoreBoard");
+        div.className = "scoreBoard"
+        let imgPlus = document.createElement("img");
+        imgPlus.setAttribute("src", "images/icon-plus.svg")
+        let score = document.createElement("p");
+        score.className = "score"
+        score.textContent = 0;
+        let imgMinus = document.createElement("img");
+        imgMinus.setAttribute("src", "images/icon-minus.svg")
+        // let replyImg = document.createElement("img");
+        // replyImg.setAttribute("src", "images/icon-reply.svg")
+        let menu = document.createElement("menu");
+        menu.className = "menu"
+        let span = document.createElement("span");
+        span.className = "replyBox deletebox"
+        let deleteImg = document.createElement("img");
+        deleteImg.setAttribute("src", "images/icon-delete.svg")
+        let h4 = document.createElement("h4");
+        h4.textContent = "Delete";
+        let span2 = document.createElement("span");
+        span2.className = "replyBox editbox"
+        let editImg = document.createElement("img");
+        editImg.setAttribute("src", "images/icon-edit.svg")
+        let edith4 = document.createElement("h4");
+        edith4.textContent = "Edit";
+        // let h4 = document.createElement("h4");
+        // h4.textContent = "Reply";
+        section.appendChild(subContainer)
+        subContainer.appendChild(header);
+        subContainer.appendChild(p);
+        subContainer.appendChild(aside);
+        header.appendChild(img);
+        header.appendChild(h2);
+        header.appendChild(h3);
+        aside.appendChild(div)
+        aside.appendChild(menu);
+        // aside.appendChild(menu);
+        menu.appendChild(span);
+        menu.appendChild(span2);
+        div.appendChild(imgPlus);
+        div.appendChild(score);
+        div.appendChild(imgMinus);
+        span2.appendChild(editImg);
+        span2.appendChild(edith4)
+        span.appendChild(deleteImg);
+        span.appendChild(h4);
+        container.prepend(section);
+        function upVote(){
+            ` ${score.textContent++}`
+         }
+         imgPlus.addEventListener("click", upVote)
+ 
+          // DECREASE SCORE USING THE PLUS IMG UPVOTE 
+         function downVote(){
+             ` ${score.textContent--}`
+         }
+        imgMinus.addEventListener("click", downVote)
+        let box = document.querySelector(".commentBox textarea")
+        box.value = "";
+        span.addEventListener("click", del)
+        span2.addEventListener("click", edit)
+    }
+
+
+let send = document.querySelector(".commentBox button")    
+send.addEventListener("click", commentBox);
 }
 
 getData();
+
+
