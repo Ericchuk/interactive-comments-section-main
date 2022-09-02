@@ -269,3 +269,23 @@ section h4{
         width:50%;
     }
 }
+@media screen and (min-width:1000px) {
+    .commentBox{
+        position: relative;
+    }
+    .commentBox textarea{
+        width:70%;
+        margin:0;
+    }
+    .commentBox img{
+        position: relative;
+        top:0;
+        /* bottom: 40px; */
+        width:8%;
+    }
+    .commentBox button{
+        position: relative;
+        top:0;
+        width:15%;
+    }
+}
